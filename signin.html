@@ -162,7 +162,20 @@
         }
     </style>
 </head>
+
 <body>
+    <script>
+        
+        function greetUser(){
+            let user = sessionStorage.getItem("name");
+            if(user){
+                alert("welcome back,"+user+"!");
+            } else{
+                alert("please login first.");
+            }
+        }
+        
+    </script>
     <div class="container">
         <div class="header-image"></div>
         <div class="logo-container">
@@ -174,7 +187,7 @@
         <h2 class="title">SIGN IN</h2>
         <div id="signin-form">
             <div class="input-group">
-                <label for="signin-username">Username</label>
+                <label for="signin-username" >Username</label>
                 <input type="text" id="signin-username" name="username" placeholder="Enter username">
             </div>
             <div class="input-group">
@@ -182,9 +195,11 @@
                 <input type="password" id="signin-password" name="password" placeholder="Enter password">
             </div>
             <button onclick="signin()">
-                Sign In
-                
+                Sign In  
             </button>
+            <input type = "text" id="userInput" placeholder ="enter your name" />
+            <button onclick="storeSession()">Login</button>
+            <button onclick="greetUser()">Greet</button>
             <div class="switch-page">
                 New to our platform? <a href="signup.html">Create an account</a>
             </div>

@@ -1,198 +1,241 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
 
-        body {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background: linear-gradient(to bottom, #abfbff, #fffae0);
-        }
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: linear-gradient(to bottom, #abfbff, #fffae0);
+    }
 
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            position: relative;
-            overflow: hidden;
-        }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .header-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 120px;
-            background: #fffae0;
-            overflow: hidden;
-        }
+    .header-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      background: #fffae0;
+      overflow: hidden;
+    }
 
-        .header-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('/api/placeholder/400/320') center/cover;
-            opacity: 0.3;
-        }
+    .header-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('/api/placeholder/400/320') center/cover;
+      opacity: 0.3;
+    }
 
-        .logo-container {
-            width: 100px;
-            height: 100px;
-            background: white;
-            border-radius: 50%;
-            margin: 70px auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 1;
-        }
+    .logo-container {
+      width: 100px;
+      height: 100px;
+      background: white;
+      border-radius: 50%;
+      margin: 70px auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 1;
+    }
 
-        .logo {
-            width: 60px;
-            height: 60px;
-            color: #fffae0;
-        }
+    .logo {
+      width: 60px;
+      height: 60px;
+      color: #fffae0;
+    }
 
-        .title {
-            color: black;
-            font-size: 24px;
-            margin-bottom: 20px;
-            font-weight: 600;
-            text-align: center;
-        }
+    .title {
+      color: black;
+      font-size: 24px;
+      margin-bottom: 20px;
+      font-weight: 600;
+      text-align: center;
+    }
 
-        .input-group {
-            margin-bottom: 16px;
-        }
+    .input-group {
+      margin-bottom: 16px;
+    }
 
-        label {
-            color: black;
-            font-weight: 500;
-            display: block;
-            margin-bottom: 6px;
-        }
+    label {
+      color: black;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 6px;
+    }
 
-        input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ecdf9e;
-            border-radius: 8px;
-            margin-top: 4px;
-            font-size: 16px;
-            transition: all 0.2s;
-        }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ecdf9e;
+      border-radius: 8px;
+      margin-top: 4px;
+      font-size: 16px;
+      transition: all 0.2s;
+    }
 
-        input:focus {
-            outline: none;
-            border-color: #fffae0;
-            box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
-        }
+    input:focus {
+      outline: none;
+      border-color: #fffae0;
+      box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+    }
 
-        button {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            background-color: #fffae0;
-            color:black;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background-color: #fffae0;
+      color: black;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
 
-        button:hover {
-            background-color: #ffe66a;
-        }
+    button:hover {
+      background-color: #ffe66a;
+    }
 
-        .switch-page {
-            text-align: center;
-            color: black;
-        }
+    .switch-page {
+      text-align: center;
+      color: black;
+    }
 
-        .switch-page a {
-            color: black;
-            text-decoration: none;
-            font-weight: 500;
-        }
+    .switch-page a {
+      color: black;
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-        .switch-page a:hover {
-            text-decoration: underline;
-        }
+    .switch-page a:hover {
+      text-decoration: underline;
+    }
 
+    .footer-text {
+      text-align: center;
+      margin-top: 24px;
+      color: #fffae0;
+      font-size: 14px;
+    }
 
-        .footer-text {
-            text-align: center;
-            margin-top: 24px;
-            color:#fffae0;
-            font-size: 14px;
-        }
-
-        .footer-text p:last-child {
-            color: #fffae0;
-            margin-top: 4px;
-        }
-    </style>
+    .footer-text p:last-child {
+      color: #fffae0;
+      margin-top: 4px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header-image"></div>
-        <div class="logo-container">
-        </div>
-        <h2 class="title">Sign Up</h2>
-        <div id="signup-form">
-            <div class="input-group">
-                <label for="signup-username">Username</label>
-                <input type="text" id="signup-username" name="username" placeholder="Create a username">
-            </div>
-            <div class="input-group">
-                <label for="signup-password">Password</label>
-                <input type="password" id="signup-password" name="password" placeholder="Create a password">
-            </div>
-            <button onclick="signup()">
-                Sign Up
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-            </button>
-            <div class="switch-page">
-                Already have an account? <a href="signin.html" onclick="navtosignin()">Sign In</a>
-            </div>
-            <div id="error-message" class="error-message"></div>
-            <div class="footer-text">
-                
-            </div>
-        </div>
-    </div>
+  <div class="container">
+    <div class="header-image"></div>
+    <div class="logo-container"></div>
+    <h2 class="title">Sign Up</h2>
+    <div id="signup-form">
+      <div class="input-group">
+        <label for="signup-username">Username</label>
+        <input type="text" id="signup-username" name="username" placeholder="Create a username">
+      </div>
 
+      <div class="input-group">
+        <label for="signup-email">Email</label>
+        <input type="email" id="signup-email" name="email" placeholder="Enter your email">
+      </div>
+
+      <div class="input-group">
+        <label for="signup-password">Password</label>
+        <input type="password" id="signup-password" name="password" placeholder="Create a password">
+      </div>
+
+      <div class="input-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter your password">
+      </div>
+
+      <button onclick="signup()">
+        Sign Up
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </button>
+
+      <div class="switch-page">
+        Already have an account? <a href="signin.html" onclick="navtosignin()">Sign In</a>
+      </div>
+
+      <div id="error-message" class="error-message"></div>
+      <div class="footer-text"></div>
+    </div>
+  </div>
+
+  <!-- JavaScript popup logic -->
+  <script>
+    function signup() {
+      const password = document.getElementById("signup-password").value;
+      const confirmPassword = document.getElementById("confirm-password").value;
+
+      if (password !== confirmPassword) {
+        showPopup("Invalid password: Passwords do not match", true);
+      } else {
+        showPopup("Signup successful!", false);
+        // Here you could submit the form
+      }
+    }
+
+    function showPopup(message, isError = false) {
+      let popup = document.getElementById("form-popup");
+      if (!popup) {
+        popup = document.createElement("div");
+        popup.id = "form-popup";
+        popup.className =
+          "fixed bottom-6 right-6 text-white px-4 py-2 rounded shadow-md text-sm opacity-0 transition-opacity duration-300 z-50";
+        document.body.appendChild(popup);
+      }
+
+      popup.innerText = message;
+      popup.classList.remove("opacity-0");
+      popup.classList.add("opacity-100");
+      popup.classList.remove("bg-green-600", "bg-red-600");
+      popup.classList.add(isError ? "bg-red-600" : "bg-green-600");
+
+      setTimeout(() => {
+        popup.classList.remove("opacity-100");
+        popup.classList.add("opacity-0");
+      }, 3000);
+    }
+  </script>
 </body>
 </html>
