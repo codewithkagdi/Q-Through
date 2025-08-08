@@ -14,6 +14,40 @@
 </head>
 <script src="bookNow.js"></script>
 
+<script>
+  fetch('about.xml')
+    .then(response => response.text())
+    .then(data => {
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(data, "application/xml");
+
+      const heading = xml.querySelector("heading").textContent;
+      const paragraph = xml.querySelector("paragraph").textContent;
+      const features = xml.querySelectorAll("feature");
+
+      const container = document.querySelector("#info-section .max-w-4xl");
+
+      let html = `
+        <h3 class="text-xl font-semibold border-b-2 border-blue-400 pb-2 mb-4">${heading}</h3>
+        <p class="mb-4">${paragraph}</p>
+        <ul class="list-disc pl-6 text-left space-y-2">
+      `;
+
+      features.forEach(f => {
+        html += `<li>${f.textContent}</li>`;
+      });
+
+      html += `</ul>`;
+
+      container.innerHTML = html;
+    })
+    .catch(error => {
+      console.error("Failed to load XML:", error);
+      document.querySelector("#info-section .max-w-4xl").innerHTML = `<p class="text-red-500">Failed to load info section.</p>`;
+    });
+</script>
+
+
 <body class="bg-[#fffae0] text-gray-800 font-sans">
 
   <!-- HERO SECTION -->
@@ -33,7 +67,7 @@
       <nav class="flex justify-between text-sm font-medium mb-6 flex-wrap gap-2">
         <a href="#" class="hover:underline">Home</a>
         <a href="signin.html" class="hover:underline">Sign In</a>
-        <a href="#" class="hover:underline">About</a>
+        <a href="about.xml" class="hover:underline">About</a>
         <a href="#" class="hover:underline">Contact</a>
         <a href="feedback.html" class="hover:underline">Feedback</a>
       </nav>
@@ -93,19 +127,14 @@
   </div>
 
   <!-- INFO SECTION -->
-  <section class="bg-[#fffae0] px-6 py-10 text-center md:text-left">
-    <div class="max-w-4xl mx-auto text-sm md:text-base">
-      <h3 class="text-xl font-semibold border-b-2 border-blue-400 pb-2 mb-4">About Q Through</h3>
-      <p class="mb-4">Q Through makes barbershop visits convenient by allowing customers to join queues remotely using just their phone number.</p>
-      <ul class="list-disc pl-6 text-left space-y-2">
-        <li>Join queues from anywhere with your phone</li>
-        <li>Real-time position updates</li>
-        <li>No app downloads needed</li>
-        <li>Simple phone number login</li>
-        <li>Save time and avoid crowds</li>
-      </ul>
-    </div>
-  </section>
+  
+  <!-- INFO SECTION (DYNAMIC FROM XML) -->
+<section class="bg-[#fffae0] px-6 py-10 text-center md:text-left" id="info-section">
+  <div class="max-w-4xl mx-auto text-sm md:text-base">
+    <!-- Content will be injected here -->
+  </div>
+</section>
+
 
   <!-- REVIEWS CAROUSEL -->
   <section class="bg-yellow-100 px-6 py-10">
